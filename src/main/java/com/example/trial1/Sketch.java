@@ -494,6 +494,16 @@ public class Sketch implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        hairSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewHair.getFitHeight() + set;
+            double aspectRatio = imageHair.getWidth() / imageHair.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewHair.setFitHeight(setY);
+            imageViewHair.setFitWidth(setX);
+        });
     }
 
     //Displays requested hair features on button click
@@ -625,6 +635,16 @@ public class Sketch implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        eyesSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewEyes.getFitHeight() + set;
+            double aspectRatio = imageEyes.getWidth() / imageEyes.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewEyes.setFitHeight(setY);
+            imageViewEyes.setFitWidth(setX);
+        });
     }
 
     //Displays requested eye features on button click
@@ -756,6 +776,16 @@ public class Sketch implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        noseSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewNose.getFitHeight() + set;
+            double aspectRatio = imageNose.getWidth() / imageNose.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewNose.setFitHeight(setY);
+            imageViewNose.setFitWidth(setX);
+        });
     }
 
     //Displays requested nose features on button click
@@ -887,6 +917,16 @@ public class Sketch implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        lipsSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewLips.getFitHeight() + set;
+            double aspectRatio = imageLips.getWidth() / imageLips.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewLips.setFitHeight(setY);
+            imageViewLips.setFitWidth(setX);
+        });
     }
 
     //Displays requested nose features on button click
@@ -1018,6 +1058,16 @@ public class Sketch implements Initializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        eyebrowSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewEyebrow.getFitHeight() + set;
+            double aspectRatio = imageEyebrow.getWidth() / imageEyebrow.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewEyebrow.setFitHeight(setY);
+            imageViewEyebrow.setFitWidth(setX);
+        });
     }
 
     //Displays requested nose features on button click
