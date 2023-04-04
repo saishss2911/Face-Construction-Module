@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="application" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="708.0" prefWidth="1350.0" style="-fx-background-color: grey;" stylesheets="@dashboardStyle.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.trial1.Sketch">
+    <children>
+        <AnchorPane layoutX="706.0" layoutY="27.0" prefHeight="636.0" prefWidth="595.0">
+            <children>
+                <TabPane layoutX="14.0" layoutY="14.0" prefHeight="618.0" prefWidth="571.0"
+                         stylesheets="@dashboardStyle.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="1.0">
+                    <tabs>
+                        <Tab text="Head">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="556.0">
+                                    <children>
+                                        <TextField fx:id="headSearchInput" layoutX="14.0" layoutY="24.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="headSearch" layoutX="470.0" layoutY="24.0"
+                                                mnemonicParsing="false" onAction="#headSearch" text="Search"
+                                                AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="65.0" prefHeight="392.0" prefWidth="508.0"
+                                                    AnchorPane.topAnchor="68.0">
+                                            <content>
+                                                <GridPane fx:id="displayHead" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="headSize" layoutX="124.0" layoutY="497.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="550.0" mnemonicParsing="false"
+                                                text="Remove Element" AnchorPane.topAnchor="554.0"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Eyes">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="eyesSearchInput" layoutX="14.0" layoutY="24.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="eyesSearch" layoutX="471.0" layoutY="24.0"
+                                                mnemonicParsing="false" onAction="#eyesSearch" text="Search"
+                                                AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0"
+                                                    AnchorPane.topAnchor="68.0">
+                                            <content>
+                                                <GridPane fx:id="displayEyes" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="eyesSize" layoutX="14.0" layoutY="521.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="554.0" mnemonicParsing="false"
+                                                text="Remove Element" AnchorPane.topAnchor="554.0"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Eyebrows">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="eyebrowSearchInput" layoutX="14.0" layoutY="24.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="eyebrowSearch" layoutX="470.0" layoutY="24.0"
+                                                mnemonicParsing="false" onAction="#eyebrowSearch" text="Search"
+                                                AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayEyebrow" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="eyebrowSize" layoutX="14.0" layoutY="521.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="554.0" mnemonicParsing="false"
+                                                text="Remove Element"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Hair">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="hairSearchInput" layoutX="14.0" layoutY="23.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="hairSearch" layoutX="471.0" layoutY="23.0"
+                                                mnemonicParsing="false" onAction="#hairSearch" text="Search"
+                                                AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayHair" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="hairSize" layoutX="14.0" layoutY="521.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="554.0" mnemonicParsing="false"
+                                                text="Remove Element"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Lips">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="lipsSearchInput" layoutX="14.0" layoutY="24.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="lipsSearch" layoutX="471.0" layoutY="24.0"
+                                                mnemonicParsing="false" onAction="#lipsSearch" text="Search"
+                                                AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayLips" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="lipsSize" layoutX="14.0" layoutY="521.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="554.0" mnemonicParsing="false"
+                                                text="Remove Element"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Nose">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="noseSearchInput" layoutX="14.0" layoutY="22.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="noseSearch" layoutX="471.0" layoutY="22.0"
+                                                mnemonicParsing="false" onAction="#noseSearch" text="Search"
+                                                AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayNose" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="noseSize" layoutX="14.0" layoutY="521.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="554.0" mnemonicParsing="false"
+                                                text="Remove Element"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Moustache">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="moustacheSearchInput" layoutX="14.0" layoutY="24.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="moustacheSearch" layoutX="471.0" layoutY="24.0"
+                                                mnemonicParsing="false" text="Search" AnchorPane.topAnchor="24.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayMoustache" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="moustacheSize" layoutX="14.0" layoutY="523.0" prefHeight="0.0"
+                                                prefWidth="297.0" AnchorPane.leftAnchor="124.0"
+                                                AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="405.0" layoutY="556.0" mnemonicParsing="false"
+                                                text="Remove Element"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                </TabPane>
+            </children>
+        </AnchorPane>
+        <Button layoutX="39.0" layoutY="27.0" mnemonicParsing="false" text="Back"/>
+        <Button fx:id="saveSketch" layoutX="751.0" layoutY="669.0" mnemonicParsing="false" text="Save"/>
+        <Button layoutX="836.0" layoutY="669.0" mnemonicParsing="false" text="Reset"/>
+        <StackPane fx:id="canvas" layoutX="39.0" layoutY="65.0" prefHeight="618.0" prefWidth="647.0"
+                   style="-fx-background-color: white;"/>
+    </children>
+</AnchorPane>

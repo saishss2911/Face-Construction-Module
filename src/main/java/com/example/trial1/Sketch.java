@@ -220,14 +220,14 @@ public class Sketch implements Initializable {
     }
 
 
-    @FXML
-    private Label statusDb;
-
-
-    @FXML
-    private Label errorlog;
-    @FXML
-    private Label headwidth;
+//    @FXML
+//    private Label statusDb;
+//
+//
+//    @FXML
+//    private Label errorlog;
+//    @FXML
+//    private Label headwidth;
 
 
     //Save the sketch to system
@@ -270,10 +270,11 @@ public class Sketch implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         if (sketchmodel.dbConnected()) {
-            statusDb.setText("WORKS");
+//            statusDb.setText("WORKS");
             headDisplay();
+            hairDisplay();
         } else {
-            statusDb.setText("Dard");
+//            statusDb.setText("Dard");
         }
     }
 
@@ -287,11 +288,11 @@ public class Sketch implements Initializable {
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
+//            }
 
             String[][] headFeature = new String[2][10];
 
@@ -301,9 +302,9 @@ public class Sketch implements Initializable {
 //            headThumbnail.add(rs.getString("featureThumb").toString());
 //            headFeaturePath.add(rs.getString("featurePath").toString());
             while (rs.next()) {
-                countHead++;
                 headFeature[0][countHead] = rs.getString("featureThumb").toString();
                 headFeature[1][countHead] = rs.getString("featurePath").toString();
+                countHead++;
 //                headThumbnail.add(rs.getString("featureThumb").toString());
 //                headFeaturePath.add(rs.getString("featurePath").toString());
             }
@@ -329,8 +330,6 @@ public class Sketch implements Initializable {
 
                                 canvas.getChildren().add(imageViewHead);
                                 draggable(imageViewHead);
-
-                                headwidth.setText("False");
 
                                 headAdd = false;
                             } else {
@@ -370,11 +369,6 @@ public class Sketch implements Initializable {
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] headFeature = new String[2][10];
             int countHead = 0;
@@ -412,8 +406,6 @@ public class Sketch implements Initializable {
                                 canvas.getChildren().add(imageViewHead);
                                 draggable(imageViewHead);
 
-                                headwidth.setText("" + imageViewHead.getFitHeight());
-
                                 headAdd = false;
                             } else {
 
@@ -435,16 +427,11 @@ public class Sketch implements Initializable {
     //Displays hair features on app load
     public void hairDisplay() {
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%hair%'";
-        displayHead.getChildren().clear();
+        displayHair.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] hairFeature = new String[2][10];
 
@@ -511,16 +498,11 @@ public class Sketch implements Initializable {
 
         String search = headSearchInput.getText();
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%hair%'";
-        displayHead.getChildren().clear();
+        displayHair.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] hairFeature = new String[2][10];
 
@@ -576,16 +558,11 @@ public class Sketch implements Initializable {
     //Displays eye features on app load
     public void eyesDisplay() {
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%eyes%'";
-        displayHead.getChildren().clear();
+        displayEyes.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] eyesFeature = new String[2][10];
 
@@ -652,16 +629,11 @@ public class Sketch implements Initializable {
 
         String search = eyesSearchInput.getText();
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%eyes%'";
-        displayHead.getChildren().clear();
+        displayEyes.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] eyesFeature = new String[2][10];
 
@@ -717,16 +689,11 @@ public class Sketch implements Initializable {
     //Displays nose features on app load
     public void noseDisplay() {
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%nose%'";
-        displayHead.getChildren().clear();
+        displayNose.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] noseFeature = new String[2][10];
 
@@ -793,16 +760,11 @@ public class Sketch implements Initializable {
 
         String search = noseSearchInput.getText();
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%nose%'";
-        displayHead.getChildren().clear();
+        displayNose.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] noseFeature = new String[2][10];
 
@@ -858,16 +820,11 @@ public class Sketch implements Initializable {
     //Displays lips features on app load
     public void lipsDisplay() {
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%lips%'";
-        displayHead.getChildren().clear();
+        displayLips.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] lipsFeature = new String[2][10];
 
@@ -934,16 +891,11 @@ public class Sketch implements Initializable {
 
         String search = lipsSearchInput.getText();
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%lips%'";
-        displayHead.getChildren().clear();
+        displayLips.getChildren().clear();
 
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] lipsFeature = new String[2][10];
 
@@ -1004,11 +956,6 @@ public class Sketch implements Initializable {
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] eyebrowFeature = new String[2][10];
 
@@ -1080,11 +1027,6 @@ public class Sketch implements Initializable {
         try {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
-            if (rs.next()) {
-                errorlog.setText("WORKS");
-            } else {
-                errorlog.setText("DARD MOMENT");
-            }
 
             String[][] eyebrowFeature = new String[2][10];
 
