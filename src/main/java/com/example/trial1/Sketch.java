@@ -42,6 +42,7 @@ public class Sketch implements Initializable {
     private boolean eyesAdd = true;
     private boolean lipsAdd = true;
     private boolean eyebrowAdd = true;
+    private boolean moustacheAdd = true;
 
 
     private double startX;
@@ -62,6 +63,7 @@ public class Sketch implements Initializable {
     private ImageView imageViewEyes;
     private ImageView imageViewLips;
     private ImageView imageViewEyebrow;
+    private ImageView imageViewMoustache;
 
 
     @FXML
@@ -170,6 +172,15 @@ public class Sketch implements Initializable {
     }
 
     @FXML
+    private Button headRemove;
+
+    @FXML
+    void headRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewHead);
+        headAdd = true;
+    }
+
+    @FXML
     private Button hairSearch;
     @FXML
     private TextField hairSearchInput;
@@ -177,6 +188,15 @@ public class Sketch implements Initializable {
     @FXML
     void hairSearch(ActionEvent event) {
         searchHair();
+    }
+
+    @FXML
+    private Button hairRemove;
+
+    @FXML
+    void hairRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewHair);
+        hairAdd = true;
     }
 
     @FXML
@@ -190,6 +210,15 @@ public class Sketch implements Initializable {
     }
 
     @FXML
+    private Button eyesRemove;
+
+    @FXML
+    void eyesRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewEyes);
+        eyesAdd = true;
+    }
+
+    @FXML
     private Button noseSearch;
     @FXML
     private TextField noseSearchInput;
@@ -197,6 +226,15 @@ public class Sketch implements Initializable {
     @FXML
     void noseSearch(ActionEvent event) {
         searchNose();
+    }
+
+    @FXML
+    private Button noseRemove;
+
+    @FXML
+    void noseRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewNose);
+        noseAdd = true;
     }
 
     @FXML
@@ -210,6 +248,15 @@ public class Sketch implements Initializable {
     }
 
     @FXML
+    private Button lipsRemove;
+
+    @FXML
+    void lipsRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewLips);
+        lipsAdd = true;
+    }
+
+    @FXML
     private Button eyebrowSearch;
     @FXML
     private TextField eyebrowSearchInput;
@@ -217,6 +264,35 @@ public class Sketch implements Initializable {
     @FXML
     void eyebrowSearch(ActionEvent event) {
         searchEyebrow();
+    }
+
+    @FXML
+    private Button eyebrowRemove;
+
+    @FXML
+    void eyebrowRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewEyebrow);
+        eyebrowAdd = true;
+    }
+
+
+    @FXML
+    private Button moustacheSearch;
+    @FXML
+    private TextField moustacheSearchInput;
+
+    @FXML
+    void moustacheSearch(ActionEvent event) {
+        //add func here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    }
+
+    @FXML
+    private Button moustacheRemove;
+
+    @FXML
+    void moustacheRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewMoustache);
+        moustacheAdd = true;
     }
 
 
@@ -228,6 +304,23 @@ public class Sketch implements Initializable {
 //    private Label errorlog;
 //    @FXML
 //    private Label headwidth;
+
+
+    @FXML
+    private Button resetCanvas;
+
+    @FXML
+    void resetCanvas(ActionEvent event) {
+        canvas.getChildren().clear();
+        headAdd = true;
+        hairAdd = true;
+        noseAdd = true;
+        eyesAdd = true;
+        lipsAdd = true;
+        eyebrowAdd = true;
+        moustacheAdd = true;
+
+    }
 
 
     //Save the sketch to system
@@ -297,8 +390,6 @@ public class Sketch implements Initializable {
             String[][] headFeature = new String[2][10];
 
             int countHead = 0;
-            headFeature[0][countHead] = rs.getString("featureThumb").toString();
-            headFeature[1][countHead] = rs.getString("featurePath").toString();
 //            headThumbnail.add(rs.getString("featureThumb").toString());
 //            headFeaturePath.add(rs.getString("featurePath").toString());
             while (rs.next()) {
@@ -372,14 +463,12 @@ public class Sketch implements Initializable {
 
             String[][] headFeature = new String[2][10];
             int countHead = 0;
-            headFeature[0][countHead] = rs.getString("featureThumb").toString();
-            headFeature[1][countHead] = rs.getString("featurePath").toString();
 //            headThumbnail.add(rs.getString("featureThumb").toString());
 //            headFeaturePath.add(rs.getString("featurePath").toString());
             while (rs.next()) {
-                countHead++;
                 headFeature[0][countHead] = rs.getString("featureThumb").toString();
                 headFeature[1][countHead] = rs.getString("featurePath").toString();
+                countHead++;
 //                headThumbnail.add(rs.getString("featureThumb").toString());
 //                headFeaturePath.add(rs.getString("featurePath").toString());
             }
@@ -458,10 +547,11 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageHair.getWidth() / imageHair.getHeight();
                                 imageViewHair = new ImageView(imageHair);
                                 imageViewHair.setPreserveRatio(true);
-                                imageViewHair.setFitHeight(320);
-                                imageViewHair.setFitWidth(aspectRatio * 320);
+                                imageViewHair.setFitHeight(230);
+                                imageViewHair.setFitWidth(aspectRatio * 230);
+                                imageViewHair.setLayoutY(200);
 
-                                imageViewHair.setViewOrder(-1);
+                                imageViewHair.setViewOrder(-2);
 
                                 canvas.getChildren().add(imageViewHair);
                                 draggable(imageViewHair);
@@ -529,8 +619,8 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageHair.getWidth() / imageHair.getHeight();
                                 imageViewHair = new ImageView(imageHair);
                                 imageViewHair.setPreserveRatio(true);
-                                imageViewHair.setFitHeight(320);
-                                imageViewHair.setFitWidth(aspectRatio * 320);
+                                imageViewHair.setFitHeight(230);
+                                imageViewHair.setFitWidth(aspectRatio * 230);
 
                                 imageViewHair.setViewOrder(-1);
 
