@@ -43,6 +43,7 @@ public class Sketch implements Initializable {
     private boolean lipsAdd = true;
     private boolean eyebrowAdd = true;
     private boolean moustacheAdd = true;
+    private boolean earsAdd = true;
 
 
     private double startX;
@@ -55,6 +56,9 @@ public class Sketch implements Initializable {
     private Image imageEyes;
     private Image imageLips;
     private Image imageEyebrow;
+    private Image imageMoustache;
+
+    private Image imageEars;
 
 
     private ImageView imageViewHead;
@@ -65,80 +69,25 @@ public class Sketch implements Initializable {
     private ImageView imageViewEyebrow;
     private ImageView imageViewMoustache;
 
+    private ImageView imageViewEars;
+
 
     @FXML
     private Slider headSize;
-
-
     @FXML
     private Slider hairSize;
-
-    @FXML
-    void changeHairSize(MouseEvent event) {
-        hairSize.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            double set = (double) newValue - (double) oldValue;
-            double setY = imageViewHair.getFitHeight() + set;
-
-            imageViewHair.setFitHeight(setY);
-        });
-    }
-
     @FXML
     private Slider noseSize;
-
-    @FXML
-    void changeNoseSize(MouseEvent event) {
-        noseSize.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            double set = (double) newValue - (double) oldValue;
-            double setY = imageViewNose.getFitHeight() + set;
-
-            imageViewNose.setFitHeight(setY);
-        });
-    }
-
     @FXML
     private Slider eyesSize;
-
-    @FXML
-    void changeEyesSize(MouseEvent event) {
-        eyesSize.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            double set = (double) newValue - (double) oldValue;
-            double setY = imageViewEyes.getFitHeight() + set;
-
-            imageViewEyes.setFitHeight(setY);
-        });
-    }
-
     @FXML
     private Slider lipsSize;
-
-    @FXML
-    void changeLipsSize(MouseEvent event) {
-        lipsSize.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            double set = (double) newValue - (double) oldValue;
-            double setY = imageViewLips.getFitHeight() + set;
-
-            imageViewLips.setFitHeight(setY);
-        });
-    }
-
     @FXML
     private Slider eyebrowSize;
-
     @FXML
-    void changeEyebrowSize(MouseEvent event) {
-        eyebrowSize.valueProperty().addListener((observable, oldValue, newValue) ->
-        {
-            double set = (double) newValue - (double) oldValue;
-            double setY = imageViewEyebrow.getFitHeight() + set;
-
-            imageViewEyebrow.setFitHeight(setY);
-        });
-    }
+    private Slider moustacheSize;
+    @FXML
+    private Slider earsSize;
 
 
     @FXML
@@ -153,6 +102,11 @@ public class Sketch implements Initializable {
     private GridPane displayLips;
     @FXML
     private GridPane displayEyebrow;
+    @FXML
+    private GridPane displayMoustache;
+
+    @FXML
+    private GridPane displayEars;
 
 
     @FXML
@@ -165,7 +119,6 @@ public class Sketch implements Initializable {
     private Button headSearch;
     @FXML
     private TextField headSearchInput;
-
     @FXML
     void headSearch(ActionEvent event) {
         searchHead();
@@ -173,7 +126,6 @@ public class Sketch implements Initializable {
 
     @FXML
     private Button headRemove;
-
     @FXML
     void headRemove(ActionEvent event) {
         canvas.getChildren().remove(imageViewHead);
@@ -184,7 +136,6 @@ public class Sketch implements Initializable {
     private Button hairSearch;
     @FXML
     private TextField hairSearchInput;
-
     @FXML
     void hairSearch(ActionEvent event) {
         searchHair();
@@ -192,7 +143,6 @@ public class Sketch implements Initializable {
 
     @FXML
     private Button hairRemove;
-
     @FXML
     void hairRemove(ActionEvent event) {
         canvas.getChildren().remove(imageViewHair);
@@ -203,7 +153,6 @@ public class Sketch implements Initializable {
     private Button eyesSearch;
     @FXML
     private TextField eyesSearchInput;
-
     @FXML
     void eyesSearch(ActionEvent event) {
         searchEyes();
@@ -211,7 +160,6 @@ public class Sketch implements Initializable {
 
     @FXML
     private Button eyesRemove;
-
     @FXML
     void eyesRemove(ActionEvent event) {
         canvas.getChildren().remove(imageViewEyes);
@@ -222,7 +170,6 @@ public class Sketch implements Initializable {
     private Button noseSearch;
     @FXML
     private TextField noseSearchInput;
-
     @FXML
     void noseSearch(ActionEvent event) {
         searchNose();
@@ -230,7 +177,6 @@ public class Sketch implements Initializable {
 
     @FXML
     private Button noseRemove;
-
     @FXML
     void noseRemove(ActionEvent event) {
         canvas.getChildren().remove(imageViewNose);
@@ -241,7 +187,6 @@ public class Sketch implements Initializable {
     private Button lipsSearch;
     @FXML
     private TextField lipsSearchInput;
-
     @FXML
     void lipsSearch(ActionEvent event) {
         searchLips();
@@ -249,7 +194,6 @@ public class Sketch implements Initializable {
 
     @FXML
     private Button lipsRemove;
-
     @FXML
     void lipsRemove(ActionEvent event) {
         canvas.getChildren().remove(imageViewLips);
@@ -260,7 +204,6 @@ public class Sketch implements Initializable {
     private Button eyebrowSearch;
     @FXML
     private TextField eyebrowSearchInput;
-
     @FXML
     void eyebrowSearch(ActionEvent event) {
         searchEyebrow();
@@ -268,7 +211,6 @@ public class Sketch implements Initializable {
 
     @FXML
     private Button eyebrowRemove;
-
     @FXML
     void eyebrowRemove(ActionEvent event) {
         canvas.getChildren().remove(imageViewEyebrow);
@@ -283,7 +225,7 @@ public class Sketch implements Initializable {
 
     @FXML
     void moustacheSearch(ActionEvent event) {
-        //add func here!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        searchMoustache();
     }
 
     @FXML
@@ -294,6 +236,22 @@ public class Sketch implements Initializable {
         canvas.getChildren().remove(imageViewMoustache);
         moustacheAdd = true;
     }
+
+
+//    @FXML
+//    private Button earsSearch;
+//    @FXML
+//    private TextField earsSearchInput;
+//    @FXML
+//    void earsSearch(ActionEvent event) { searchEars();}
+//
+//    @FXML
+//    private Button earsRemove;
+//    @FXML
+//    void earsRemove(ActionEvent event) {
+//        canvas.getChildren().remove(imageViewEars);
+//        earsAdd = true;
+//    }
 
 
 //    @FXML
@@ -319,6 +277,7 @@ public class Sketch implements Initializable {
         lipsAdd = true;
         eyebrowAdd = true;
         moustacheAdd = true;
+        earsAdd = true;
 
     }
 
@@ -589,7 +548,7 @@ public class Sketch implements Initializable {
     //Displays requested hair features on button click
     public void searchHair() {
 
-        String search = headSearchInput.getText();
+        String search = hairSearchInput.getText();
         String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%hair%'";
         displayHair.getChildren().clear();
 
@@ -743,7 +702,7 @@ public class Sketch implements Initializable {
                         public void handle(MouseEvent e) {
                             if (eyesAdd) {
 
-                                imageHair = new Image(eyesFeature[1][countFuncCopy]);
+                                imageEyes = new Image(eyesFeature[1][countFuncCopy]);
                                 double aspectRatio = imageEyes.getWidth() / imageEyes.getHeight();
                                 imageViewEyes = new ImageView(imageEyes);
                                 imageViewEyes.setPreserveRatio(true);
@@ -967,7 +926,7 @@ public class Sketch implements Initializable {
         });
     }
 
-    //Displays requested nose features on button click
+    //Displays requested lips features on button click
     public void searchLips() {
 
         String search = lipsSearchInput.getText();
@@ -1053,7 +1012,7 @@ public class Sketch implements Initializable {
                     displayEyebrow.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
-                            if (lipsAdd) {
+                            if (eyebrowAdd) {
 
                                 imageEyebrow = new Image(eyebrowFeature[1][countFuncCopy]);
                                 double aspectRatio = imageEyebrow.getWidth() / imageEyebrow.getHeight();
@@ -1094,7 +1053,7 @@ public class Sketch implements Initializable {
         });
     }
 
-    //Displays requested nose features on button click
+    //Displays requested eyebrow features on button click
     public void searchEyebrow() {
 
         String search = eyebrowSearchInput.getText();
@@ -1152,6 +1111,278 @@ public class Sketch implements Initializable {
             e.printStackTrace();
         }
     }
+
+    //Displays moustache features on app load
+    public void moustacheDisplay() {
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%moustache%'";
+        displayMoustache.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            String[][] moustacheFeature = new String[2][10];
+
+            int countMoustache = 0;
+            while (rs.next()) {
+                moustacheFeature[0][countMoustache] = rs.getString("featureThumb").toString();
+                moustacheFeature[1][countMoustache] = rs.getString("featurePath").toString();
+                countMoustache++;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+
+                    displayMoustache.add(new ImageView(new Image(moustacheFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayMoustache.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (moustacheAdd) {
+
+                                imageMoustache = new Image(moustacheFeature[1][countFuncCopy]);
+                                double aspectRatio = imageMoustache.getWidth() / imageMoustache.getHeight();
+                                imageViewMoustache = new ImageView(imageMoustache);
+                                imageViewMoustache.setPreserveRatio(true);
+                                imageViewMoustache.setFitHeight(100);
+                                imageViewMoustache.setFitWidth(aspectRatio * 100);
+
+                                imageViewMoustache.setViewOrder(-1);
+
+                                canvas.getChildren().add(imageViewMoustache);
+                                draggable(imageViewMoustache);
+
+                                moustacheAdd = false;
+                            } else {
+
+                                imageViewMoustache.setImage(new Image(moustacheFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        moustacheSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewMoustache.getFitHeight() + set;
+            double aspectRatio = imageMoustache.getWidth() / imageMoustache.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewMoustache.setFitHeight(setY);
+            imageViewMoustache.setFitWidth(setX);
+        });
+    }
+
+    //Displays requested moustache features on button click
+    public void searchMoustache() {
+        String search = moustacheSearchInput.getText();
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%moustache%'";
+        displayMoustache.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            String[][] moustacheFeature = new String[2][10];
+
+            int countMoustache = 0;
+            while (rs.next()) {
+                moustacheFeature[0][countMoustache] = rs.getString("featureThumb").toString();
+                moustacheFeature[1][countMoustache] = rs.getString("featurePath").toString();
+                countMoustache++;
+            }
+
+            for (int i = 0; i < 4; i++) {
+                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+
+                    displayMoustache.add(new ImageView(new Image(moustacheFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayMoustache.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (moustacheAdd) {
+
+                                imageMoustache = new Image(moustacheFeature[1][countFuncCopy]);
+                                double aspectRatio = imageMoustache.getWidth() / imageMoustache.getHeight();
+                                imageViewMoustache = new ImageView(imageMoustache);
+                                imageViewMoustache.setPreserveRatio(true);
+                                imageViewMoustache.setFitHeight(100);
+                                imageViewMoustache.setFitWidth(aspectRatio * 100);
+
+                                imageViewMoustache.setViewOrder(-3);
+
+                                canvas.getChildren().add(imageViewMoustache);
+                                draggable(imageViewMoustache);
+
+                                moustacheAdd = false;
+                            } else {
+
+                                imageViewMoustache.setImage(new Image(moustacheFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+//    //Displays ear features on app load
+//    public void earsDisplay() {
+//        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%ears%'";
+//        displayEars.getChildren().clear();
+//
+//        try {
+//            PreparedStatement pst = connection.prepareStatement(sql);
+//            ResultSet rs = pst.executeQuery();
+////            if (rs.next()) {
+////                errorlog.setText("WORKS");
+////            } else {
+////                errorlog.setText("DARD MOMENT");
+////            }
+//
+//            String[][] earsFeature = new String[2][10];
+//
+//            int countEars = 0;
+////            headThumbnail.add(rs.getString("featureThumb").toString());
+////            headFeaturePath.add(rs.getString("featurePath").toString());
+//            while (rs.next()) {
+//                earsFeature[0][countEars] = rs.getString("featureThumb").toString();
+//                earsFeature[1][countEars] = rs.getString("featurePath").toString();
+//                countEars++;
+////                headThumbnail.add(rs.getString("featureThumb").toString());
+////                headFeaturePath.add(rs.getString("featurePath").toString());
+//            }
+//
+//            for (int i = 0; i < 4; i++) {
+//                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+//
+//                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
+//                    int countFuncCopy = countFunc;
+//                    displayEars.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+//
+//                        public void handle(MouseEvent e) {
+//                            if (earsAdd) {
+//
+//                                imageEars = new Image(earsFeature[1][countFuncCopy]);
+//                                double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
+//                                imageViewEars = new ImageView(imageEars);
+//                                imageViewEars.setPreserveRatio(true);
+//                                imageViewEars.setFitHeight(320);
+//                                imageViewEars.setFitWidth(aspectRatio * 320);
+//
+//                                imageViewEars.setViewOrder(-1);
+//
+//                                canvas.getChildren().add(imageViewEars);
+//                                draggable(imageViewEars);
+//
+//                                earsAdd = false;
+//                            } else {
+//
+//                                imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
+//
+//                            }
+//                        }
+//                    });
+//
+//                }
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        earsSize.valueProperty().addListener((observable, oldValue, newValue) ->
+//        {
+//            double set = (double) newValue - (double) oldValue;
+//            double setY = imageViewEars.getFitHeight() + set;
+//            double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
+//            double setX = aspectRatio * setY;
+//            imageViewEars.setFitHeight(setY);
+//            imageViewEars.setFitWidth(setX);
+//        });
+//    }
+//
+//
+//    //Displays requested ear features on button click
+//    public void searchEars() {
+//
+//        String search = earsSearchInput.getText();
+//        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%head%'";
+//        displayEars.getChildren().clear();
+//
+//        try {
+//            PreparedStatement pst = connection.prepareStatement(sql);
+//            ResultSet rs = pst.executeQuery();
+////            if (rs.next()) {
+////                errorlog.setText("WORKS");
+////            } else {
+////                errorlog.setText("DARD MOMENT");
+////            }
+//
+//            String[][] earsFeature = new String[2][10];
+//
+//            int countEars = 0;
+////            headThumbnail.add(rs.getString("featureThumb").toString());
+////            headFeaturePath.add(rs.getString("featurePath").toString());
+//            while (rs.next()) {
+//                earsFeature[0][countEars] = rs.getString("featureThumb").toString();
+//                earsFeature[1][countEars] = rs.getString("featurePath").toString();
+//                countEars++;
+////                headThumbnail.add(rs.getString("featureThumb").toString());
+////                headFeaturePath.add(rs.getString("featurePath").toString());
+//            }
+//
+//            for (int i = 0; i < 4; i++) {
+//                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+//
+//                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
+//                    int countFuncCopy = countFunc;
+//                    displayEars.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+//
+//                        public void handle(MouseEvent e) {
+//                            if (earsAdd) {
+//
+//                                imageEars = new Image(earsFeature[1][countFuncCopy]);
+//                                double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
+//                                imageViewEars = new ImageView(imageEars);
+//                                imageViewEars.setPreserveRatio(true);
+//                                imageViewEars.setFitHeight(320);
+//                                imageViewEars.setFitWidth(aspectRatio * 320);
+//
+//                                imageViewEars.setViewOrder(-1);
+//
+//                                canvas.getChildren().add(imageViewEars);
+//                                draggable(imageViewEars);
+//
+//                                earsAdd = false;
+//                            } else {
+//
+//                                imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
+//
+//                            }
+//                        }
+//                    });
+//
+//                }
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//    }
+
 
     //Common function to make elements draggable
     Consumer<? super Node> draggable(ImageView node) {

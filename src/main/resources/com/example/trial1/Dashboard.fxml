@@ -141,7 +141,7 @@
                                         <TextField fx:id="eyebrowSearchInput" layoutX="14.0" layoutY="24.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
                                         <Button fx:id="eyebrowSearch" layoutX="470.0" layoutY="24.0"
-                                                mnemonicParsing="false" onAction="#eyesSearch" text="Search"
+                                                mnemonicParsing="false" onAction="#eyebrowSearch" text="Search"
                                                 AnchorPane.topAnchor="24.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
                                             <content>
