@@ -364,12 +364,12 @@ public class Sketch implements Initializable {
 //                headFeaturePath.add(rs.getString("featurePath").toString());
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
-
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
                     displayHead.add(new ImageView(new Image(headFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayHead.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayHead.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (headAdd) {
@@ -437,12 +437,13 @@ public class Sketch implements Initializable {
 //                headFeaturePath.add(rs.getString("featurePath").toString());
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayHead.add(new ImageView(new Image(headFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayHead.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayHead.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (headAdd) {
@@ -495,12 +496,13 @@ public class Sketch implements Initializable {
                 countHair++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayHair.add(new ImageView(new Image(hairFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayHair.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayHair.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (hairAdd) {
@@ -565,12 +567,13 @@ public class Sketch implements Initializable {
                 countHair++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayHair.add(new ImageView(new Image(hairFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayHair.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayHair.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (hairAdd) {
@@ -623,12 +626,13 @@ public class Sketch implements Initializable {
                 countEyes++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyes.add(new ImageView(new Image(eyesFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayEyes.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayEyes.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (eyesAdd) {
@@ -692,12 +696,13 @@ public class Sketch implements Initializable {
                 countEyes++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyes.add(new ImageView(new Image(eyesFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayEyes.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayEyes.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (eyesAdd) {
@@ -750,12 +755,13 @@ public class Sketch implements Initializable {
                 countNose++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayNose.add(new ImageView(new Image(noseFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayNose.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayNose.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (noseAdd) {
@@ -819,12 +825,13 @@ public class Sketch implements Initializable {
                 countNose++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayNose.add(new ImageView(new Image(noseFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayNose.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayNose.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (noseAdd) {
@@ -877,12 +884,13 @@ public class Sketch implements Initializable {
                 countLips++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayLips.add(new ImageView(new Image(lipsFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayLips.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayLips.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (lipsAdd) {
@@ -946,12 +954,13 @@ public class Sketch implements Initializable {
                 countLips++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayLips.add(new ImageView(new Image(lipsFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayLips.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayLips.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (lipsAdd) {
@@ -1004,12 +1013,13 @@ public class Sketch implements Initializable {
                 countEyebrow++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyebrow.add(new ImageView(new Image(eyebrowFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayEyebrow.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayEyebrow.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (eyebrowAdd) {
@@ -1073,12 +1083,13 @@ public class Sketch implements Initializable {
                 countEyebrow++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyebrow.add(new ImageView(new Image(eyebrowFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayEyebrow.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayEyebrow.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (eyebrowAdd) {
@@ -1130,12 +1141,13 @@ public class Sketch implements Initializable {
                 countMoustache++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayMoustache.add(new ImageView(new Image(moustacheFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayMoustache.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayMoustache.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (moustacheAdd) {
@@ -1198,12 +1210,13 @@ public class Sketch implements Initializable {
                 countMoustache++;
             }
 
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayMoustache.add(new ImageView(new Image(moustacheFeature[0][countFunc])), j, i);
                     int countFuncCopy = countFunc;
-                    displayMoustache.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+                    displayMoustache.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 
                         public void handle(MouseEvent e) {
                             if (moustacheAdd) {
@@ -1265,12 +1278,13 @@ public class Sketch implements Initializable {
 ////                headFeaturePath.add(rs.getString("featurePath").toString());
 //            }
 //
-//            for (int i = 0; i < 4; i++) {
-//                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+//            int countFunc = 0;
+//            for (int i = 0; i < 5; i++) {
+//                for (int j = 0; j < 4; j++, countFunc++) {
 //
 //                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
 //                    int countFuncCopy = countFunc;
-//                    displayEars.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+//                    displayEars.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 //
 //                        public void handle(MouseEvent e) {
 //                            if (earsAdd) {
@@ -1344,12 +1358,13 @@ public class Sketch implements Initializable {
 ////                headFeaturePath.add(rs.getString("featurePath").toString());
 //            }
 //
-//            for (int i = 0; i < 4; i++) {
-//                for (int j = 0, countFunc = 0; j < 3 || countFunc < 10; j++, countFunc++) {
+//            int countFunc = 0;
+//            for (int i = 0; i < 5; i++) {
+//                for (int j = 0; j < 4; j++, countFunc++) {
 //
 //                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
 //                    int countFuncCopy = countFunc;
-//                    displayEars.getChildren().get(i * 4 + j).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+//                    displayEars.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
 //
 //                        public void handle(MouseEvent e) {
 //                            if (earsAdd) {
