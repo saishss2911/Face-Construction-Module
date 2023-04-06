@@ -402,7 +402,8 @@
             </children>
         </AnchorPane>
         <Button layoutX="39.0" layoutY="27.0" mnemonicParsing="false" text="Back"/>
-        <Button fx:id="saveSketch" layoutX="751.0" layoutY="669.0" mnemonicParsing="false" text="Save"/>
+        <Button fx:id="saveSketch" layoutX="751.0" layoutY="669.0" mnemonicParsing="false" onAction="#saveSketch"
+                text="Save"/>
         <Button fx:id="resetCanvas" layoutX="836.0" layoutY="669.0" mnemonicParsing="false" onAction="#resetCanvas"
                 text="Reset"/>
     </children>

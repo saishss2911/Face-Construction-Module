@@ -329,7 +329,7 @@ public class Sketch implements Initializable {
     private WritableImage sketch = new WritableImage(512, 512);
 
     @FXML
-    void saveImage(ActionEvent event) {
+    void saveSketch(ActionEvent event) {
 
         FileChooser fileChooser = new FileChooser();
 
@@ -339,6 +339,11 @@ public class Sketch implements Initializable {
         //Set extension filter
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
+        File sketches = new File(System.getProperty("user.home"), ".sketches/Saved Sketches");
+        if (!sketches.exists()) {
+            sketches.mkdirs();
+        }
+        fileChooser.setInitialDirectory(sketches);
 
         //Show save file dialog
         File file = fileChooser.showSaveDialog(stage);
@@ -525,12 +530,10 @@ public class Sketch implements Initializable {
             String[][] hairFeature = new String[2][10];
 
             int countHair = 0;
-            hairFeature[0][countHair] = rs.getString("featureThumb").toString();
-            hairFeature[1][countHair] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countHair++;
                 hairFeature[0][countHair] = rs.getString("featureThumb").toString();
                 hairFeature[1][countHair] = rs.getString("featurePath").toString();
+                countHair++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -597,12 +600,10 @@ public class Sketch implements Initializable {
             String[][] hairFeature = new String[2][10];
 
             int countHair = 0;
-            hairFeature[0][countHair] = rs.getString("featureThumb").toString();
-            hairFeature[1][countHair] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countHair++;
                 hairFeature[0][countHair] = rs.getString("featureThumb").toString();
                 hairFeature[1][countHair] = rs.getString("featurePath").toString();
+                countHair++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -657,12 +658,10 @@ public class Sketch implements Initializable {
             String[][] eyesFeature = new String[2][10];
 
             int countEyes = 0;
-            eyesFeature[0][countEyes] = rs.getString("featureThumb").toString();
-            eyesFeature[1][countEyes] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countEyes++;
                 eyesFeature[0][countEyes] = rs.getString("featureThumb").toString();
                 eyesFeature[1][countEyes] = rs.getString("featurePath").toString();
+                countEyes++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -728,12 +727,10 @@ public class Sketch implements Initializable {
             String[][] eyesFeature = new String[2][10];
 
             int countEyes = 0;
-            eyesFeature[0][countEyes] = rs.getString("featureThumb").toString();
-            eyesFeature[1][countEyes] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countEyes++;
                 eyesFeature[0][countEyes] = rs.getString("featureThumb").toString();
                 eyesFeature[1][countEyes] = rs.getString("featurePath").toString();
+                countEyes++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -788,12 +785,10 @@ public class Sketch implements Initializable {
             String[][] noseFeature = new String[2][10];
 
             int countNose = 0;
-            noseFeature[0][countNose] = rs.getString("featureThumb").toString();
-            noseFeature[1][countNose] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countNose++;
                 noseFeature[0][countNose] = rs.getString("featureThumb").toString();
                 noseFeature[1][countNose] = rs.getString("featurePath").toString();
+                countNose++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -859,12 +854,10 @@ public class Sketch implements Initializable {
             String[][] noseFeature = new String[2][10];
 
             int countNose = 0;
-            noseFeature[0][countNose] = rs.getString("featureThumb").toString();
-            noseFeature[1][countNose] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countNose++;
                 noseFeature[0][countNose] = rs.getString("featureThumb").toString();
                 noseFeature[1][countNose] = rs.getString("featurePath").toString();
+                countNose++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -919,12 +912,10 @@ public class Sketch implements Initializable {
             String[][] lipsFeature = new String[2][10];
 
             int countLips = 0;
-            lipsFeature[0][countLips] = rs.getString("featureThumb").toString();
-            lipsFeature[1][countLips] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countLips++;
                 lipsFeature[0][countLips] = rs.getString("featureThumb").toString();
                 lipsFeature[1][countLips] = rs.getString("featurePath").toString();
+                countLips++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -990,12 +981,10 @@ public class Sketch implements Initializable {
             String[][] lipsFeature = new String[2][10];
 
             int countLips = 0;
-            lipsFeature[0][countLips] = rs.getString("featureThumb").toString();
-            lipsFeature[1][countLips] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countLips++;
                 lipsFeature[0][countLips] = rs.getString("featureThumb").toString();
                 lipsFeature[1][countLips] = rs.getString("featurePath").toString();
+                countLips++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -1050,12 +1039,10 @@ public class Sketch implements Initializable {
             String[][] eyebrowFeature = new String[2][10];
 
             int countEyebrow = 0;
-            eyebrowFeature[0][countEyebrow] = rs.getString("featureThumb").toString();
-            eyebrowFeature[1][countEyebrow] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countEyebrow++;
                 eyebrowFeature[0][countEyebrow] = rs.getString("featureThumb").toString();
                 eyebrowFeature[1][countEyebrow] = rs.getString("featurePath").toString();
+                countEyebrow++;
             }
 
             for (int i = 0; i < 4; i++) {
@@ -1121,12 +1108,10 @@ public class Sketch implements Initializable {
             String[][] eyebrowFeature = new String[2][10];
 
             int countEyebrow = 0;
-            eyebrowFeature[0][countEyebrow] = rs.getString("featureThumb").toString();
-            eyebrowFeature[1][countEyebrow] = rs.getString("featurePath").toString();
             while (rs.next()) {
-                countEyebrow++;
                 eyebrowFeature[0][countEyebrow] = rs.getString("featureThumb").toString();
                 eyebrowFeature[1][countEyebrow] = rs.getString("featurePath").toString();
+                countEyebrow++;
             }
 
             for (int i = 0; i < 4; i++) {
