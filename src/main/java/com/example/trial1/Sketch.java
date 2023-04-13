@@ -104,7 +104,6 @@ public class Sketch implements Initializable {
     private GridPane displayEyebrow;
     @FXML
     private GridPane displayMoustache;
-
     @FXML
     private GridPane displayEars;
 
@@ -238,20 +237,24 @@ public class Sketch implements Initializable {
     }
 
 
-//    @FXML
-//    private Button earsSearch;
-//    @FXML
-//    private TextField earsSearchInput;
-//    @FXML
-//    void earsSearch(ActionEvent event) { searchEars();}
-//
-//    @FXML
-//    private Button earsRemove;
-//    @FXML
-//    void earsRemove(ActionEvent event) {
-//        canvas.getChildren().remove(imageViewEars);
-//        earsAdd = true;
-//    }
+    @FXML
+    private Button earsSearch;
+    @FXML
+    private TextField earsSearchInput;
+
+    @FXML
+    void earsSearch(ActionEvent event) {
+        searchEars();
+    }
+
+    @FXML
+    private Button earsRemove;
+
+    @FXML
+    void earsRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewEars);
+        earsAdd = true;
+    }
 
 
 //    @FXML
@@ -330,6 +333,12 @@ public class Sketch implements Initializable {
 //            statusDb.setText("WORKS");
             headDisplay();
             hairDisplay();
+            noseDisplay();
+            eyesDisplay();
+            lipsDisplay();
+            eyebrowDisplay();
+            moustacheDisplay();
+            earsDisplay();
         } else {
 //            statusDb.setText("Dard");
         }
@@ -351,7 +360,7 @@ public class Sketch implements Initializable {
 //                errorlog.setText("DARD MOMENT");
 //            }
 
-            String[][] headFeature = new String[2][10];
+            String[][] headFeature = new String[2][100];
 
             int countHead = 0;
 //            headThumbnail.add(rs.getString("featureThumb").toString());
@@ -425,7 +434,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] headFeature = new String[2][10];
+            String[][] headFeature = new String[2][100];
             int countHead = 0;
 //            headThumbnail.add(rs.getString("featureThumb").toString());
 //            headFeaturePath.add(rs.getString("featurePath").toString());
@@ -487,7 +496,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] hairFeature = new String[2][10];
+            String[][] hairFeature = new String[2][100];
 
             int countHair = 0;
             while (rs.next()) {
@@ -511,11 +520,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageHair.getWidth() / imageHair.getHeight();
                                 imageViewHair = new ImageView(imageHair);
                                 imageViewHair.setPreserveRatio(true);
-                                imageViewHair.setFitHeight(230);
-                                imageViewHair.setFitWidth(aspectRatio * 230);
-                                imageViewHair.setLayoutY(200);
+                                imageViewHair.setFitHeight(470);
+                                imageViewHair.setFitWidth(aspectRatio * 470);
 
-                                imageViewHair.setViewOrder(-2);
+                                imageViewHair.setViewOrder(-8);
 
                                 canvas.getChildren().add(imageViewHair);
                                 draggable(imageViewHair);
@@ -558,7 +566,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] hairFeature = new String[2][10];
+            String[][] hairFeature = new String[2][100];
 
             int countHair = 0;
             while (rs.next()) {
@@ -582,10 +590,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageHair.getWidth() / imageHair.getHeight();
                                 imageViewHair = new ImageView(imageHair);
                                 imageViewHair.setPreserveRatio(true);
-                                imageViewHair.setFitHeight(230);
-                                imageViewHair.setFitWidth(aspectRatio * 230);
+                                imageViewHair.setFitHeight(470);
+                                imageViewHair.setFitWidth(aspectRatio * 470);
 
-                                imageViewHair.setViewOrder(-1);
+                                imageViewHair.setViewOrder(-8);
 
                                 canvas.getChildren().add(imageViewHair);
                                 draggable(imageViewHair);
@@ -617,7 +625,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] eyesFeature = new String[2][10];
+            String[][] eyesFeature = new String[2][100];
 
             int countEyes = 0;
             while (rs.next()) {
@@ -641,10 +649,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageEyes.getWidth() / imageEyes.getHeight();
                                 imageViewEyes = new ImageView(imageEyes);
                                 imageViewEyes.setPreserveRatio(true);
-                                imageViewEyes.setFitHeight(320);
-                                imageViewEyes.setFitWidth(aspectRatio * 320);
+                                imageViewEyes.setFitHeight(70);
+                                imageViewEyes.setFitWidth(aspectRatio * 70);
 
-                                imageViewEyes.setViewOrder(-1);
+                                imageViewEyes.setViewOrder(-2);
 
                                 canvas.getChildren().add(imageViewEyes);
                                 draggable(imageViewEyes);
@@ -687,7 +695,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] eyesFeature = new String[2][10];
+            String[][] eyesFeature = new String[2][100];
 
             int countEyes = 0;
             while (rs.next()) {
@@ -711,10 +719,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageEyes.getWidth() / imageEyes.getHeight();
                                 imageViewEyes = new ImageView(imageEyes);
                                 imageViewEyes.setPreserveRatio(true);
-                                imageViewEyes.setFitHeight(320);
-                                imageViewEyes.setFitWidth(aspectRatio * 320);
+                                imageViewEyes.setFitHeight(70);
+                                imageViewEyes.setFitWidth(aspectRatio * 70);
 
-                                imageViewEyes.setViewOrder(-1);
+                                imageViewEyes.setViewOrder(-2);
 
                                 canvas.getChildren().add(imageViewEyes);
                                 draggable(imageViewEyes);
@@ -746,7 +754,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] noseFeature = new String[2][10];
+            String[][] noseFeature = new String[2][100];
 
             int countNose = 0;
             while (rs.next()) {
@@ -770,10 +778,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageNose.getWidth() / imageNose.getHeight();
                                 imageViewNose = new ImageView(imageNose);
                                 imageViewNose.setPreserveRatio(true);
-                                imageViewNose.setFitHeight(320);
-                                imageViewNose.setFitWidth(aspectRatio * 320);
+                                imageViewNose.setFitHeight(80);
+                                imageViewNose.setFitWidth(aspectRatio * 80);
 
-                                imageViewNose.setViewOrder(-1);
+                                imageViewNose.setViewOrder(-6);
 
                                 canvas.getChildren().add(imageViewNose);
                                 draggable(imageViewNose);
@@ -816,7 +824,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] noseFeature = new String[2][10];
+            String[][] noseFeature = new String[2][100];
 
             int countNose = 0;
             while (rs.next()) {
@@ -840,10 +848,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageNose.getWidth() / imageNose.getHeight();
                                 imageViewNose = new ImageView(imageNose);
                                 imageViewNose.setPreserveRatio(true);
-                                imageViewNose.setFitHeight(320);
-                                imageViewNose.setFitWidth(aspectRatio * 320);
+                                imageViewNose.setFitHeight(80);
+                                imageViewNose.setFitWidth(aspectRatio * 80);
 
-                                imageViewNose.setViewOrder(-1);
+                                imageViewNose.setViewOrder(-6);
 
                                 canvas.getChildren().add(imageViewNose);
                                 draggable(imageViewNose);
@@ -875,7 +883,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] lipsFeature = new String[2][10];
+            String[][] lipsFeature = new String[2][100];
 
             int countLips = 0;
             while (rs.next()) {
@@ -899,10 +907,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageLips.getWidth() / imageLips.getHeight();
                                 imageViewLips = new ImageView(imageLips);
                                 imageViewLips.setPreserveRatio(true);
-                                imageViewLips.setFitHeight(320);
-                                imageViewLips.setFitWidth(aspectRatio * 320);
+                                imageViewLips.setFitHeight(80);
+                                imageViewLips.setFitWidth(aspectRatio * 80);
 
-                                imageViewLips.setViewOrder(-1);
+                                imageViewLips.setViewOrder(-4);
 
                                 canvas.getChildren().add(imageViewLips);
                                 draggable(imageViewLips);
@@ -945,7 +953,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] lipsFeature = new String[2][10];
+            String[][] lipsFeature = new String[2][100];
 
             int countLips = 0;
             while (rs.next()) {
@@ -969,10 +977,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageLips.getWidth() / imageLips.getHeight();
                                 imageViewLips = new ImageView(imageLips);
                                 imageViewLips.setPreserveRatio(true);
-                                imageViewLips.setFitHeight(320);
-                                imageViewLips.setFitWidth(aspectRatio * 320);
+                                imageViewLips.setFitHeight(80);
+                                imageViewLips.setFitWidth(aspectRatio * 80);
 
-                                imageViewLips.setViewOrder(-1);
+                                imageViewLips.setViewOrder(-4);
 
                                 canvas.getChildren().add(imageViewLips);
                                 draggable(imageViewLips);
@@ -1004,7 +1012,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] eyebrowFeature = new String[2][10];
+            String[][] eyebrowFeature = new String[2][100];
 
             int countEyebrow = 0;
             while (rs.next()) {
@@ -1028,10 +1036,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageEyebrow.getWidth() / imageEyebrow.getHeight();
                                 imageViewEyebrow = new ImageView(imageEyebrow);
                                 imageViewEyebrow.setPreserveRatio(true);
-                                imageViewEyebrow.setFitHeight(320);
-                                imageViewEyebrow.setFitWidth(aspectRatio * 320);
+                                imageViewEyebrow.setFitHeight(70);
+                                imageViewEyebrow.setFitWidth(aspectRatio * 70);
 
-                                imageViewEyebrow.setViewOrder(-1);
+                                imageViewEyebrow.setViewOrder(-3);
 
                                 canvas.getChildren().add(imageViewEyebrow);
                                 draggable(imageViewEyebrow);
@@ -1074,7 +1082,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] eyebrowFeature = new String[2][10];
+            String[][] eyebrowFeature = new String[2][100];
 
             int countEyebrow = 0;
             while (rs.next()) {
@@ -1098,10 +1106,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageEyebrow.getWidth() / imageEyebrow.getHeight();
                                 imageViewEyebrow = new ImageView(imageEyebrow);
                                 imageViewEyebrow.setPreserveRatio(true);
-                                imageViewEyebrow.setFitHeight(320);
-                                imageViewEyebrow.setFitWidth(aspectRatio * 320);
+                                imageViewEyebrow.setFitHeight(70);
+                                imageViewEyebrow.setFitWidth(aspectRatio * 70);
 
-                                imageViewEyebrow.setViewOrder(-1);
+                                imageViewEyebrow.setViewOrder(-3);
 
                                 canvas.getChildren().add(imageViewEyebrow);
                                 draggable(imageViewEyebrow);
@@ -1132,7 +1140,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] moustacheFeature = new String[2][10];
+            String[][] moustacheFeature = new String[2][100];
 
             int countMoustache = 0;
             while (rs.next()) {
@@ -1156,10 +1164,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageMoustache.getWidth() / imageMoustache.getHeight();
                                 imageViewMoustache = new ImageView(imageMoustache);
                                 imageViewMoustache.setPreserveRatio(true);
-                                imageViewMoustache.setFitHeight(100);
-                                imageViewMoustache.setFitWidth(aspectRatio * 100);
+                                imageViewMoustache.setFitHeight(80);
+                                imageViewMoustache.setFitWidth(aspectRatio * 80);
 
-                                imageViewMoustache.setViewOrder(-1);
+                                imageViewMoustache.setViewOrder(-5);
 
                                 canvas.getChildren().add(imageViewMoustache);
                                 draggable(imageViewMoustache);
@@ -1201,7 +1209,7 @@ public class Sketch implements Initializable {
             PreparedStatement pst = connection.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
-            String[][] moustacheFeature = new String[2][10];
+            String[][] moustacheFeature = new String[2][100];
 
             int countMoustache = 0;
             while (rs.next()) {
@@ -1225,10 +1233,10 @@ public class Sketch implements Initializable {
                                 double aspectRatio = imageMoustache.getWidth() / imageMoustache.getHeight();
                                 imageViewMoustache = new ImageView(imageMoustache);
                                 imageViewMoustache.setPreserveRatio(true);
-                                imageViewMoustache.setFitHeight(100);
-                                imageViewMoustache.setFitWidth(aspectRatio * 100);
+                                imageViewMoustache.setFitHeight(80);
+                                imageViewMoustache.setFitWidth(aspectRatio * 80);
 
-                                imageViewMoustache.setViewOrder(-3);
+                                imageViewMoustache.setViewOrder(-5);
 
                                 canvas.getChildren().add(imageViewMoustache);
                                 draggable(imageViewMoustache);
@@ -1251,152 +1259,144 @@ public class Sketch implements Initializable {
     }
 
 
-//    //Displays ear features on app load
-//    public void earsDisplay() {
-//        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%ears%'";
-//        displayEars.getChildren().clear();
-//
-//        try {
-//            PreparedStatement pst = connection.prepareStatement(sql);
-//            ResultSet rs = pst.executeQuery();
-////            if (rs.next()) {
-////                errorlog.setText("WORKS");
-////            } else {
-////                errorlog.setText("DARD MOMENT");
-////            }
-//
-//            String[][] earsFeature = new String[2][10];
-//
-//            int countEars = 0;
-////            headThumbnail.add(rs.getString("featureThumb").toString());
-////            headFeaturePath.add(rs.getString("featurePath").toString());
-//            while (rs.next()) {
-//                earsFeature[0][countEars] = rs.getString("featureThumb").toString();
-//                earsFeature[1][countEars] = rs.getString("featurePath").toString();
-//                countEars++;
-////                headThumbnail.add(rs.getString("featureThumb").toString());
-////                headFeaturePath.add(rs.getString("featurePath").toString());
+    //Displays ear features on app load
+    public void earsDisplay() {
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%ears%'";
+        displayEars.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
 //            }
-//
-//            int countFunc = 0;
-//            for (int i = 0; i < 5; i++) {
-//                for (int j = 0; j < 4; j++, countFunc++) {
-//
-//                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
-//                    int countFuncCopy = countFunc;
-//                    displayEars.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//
-//                        public void handle(MouseEvent e) {
-//                            if (earsAdd) {
-//
-//                                imageEars = new Image(earsFeature[1][countFuncCopy]);
-//                                double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
-//                                imageViewEars = new ImageView(imageEars);
-//                                imageViewEars.setPreserveRatio(true);
-//                                imageViewEars.setFitHeight(320);
-//                                imageViewEars.setFitWidth(aspectRatio * 320);
-//
-//                                imageViewEars.setViewOrder(-1);
-//
-//                                canvas.getChildren().add(imageViewEars);
-//                                draggable(imageViewEars);
-//
-//                                earsAdd = false;
-//                            } else {
-//
-//                                imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
-//
-//                            }
-//                        }
-//                    });
-//
-//                }
+
+            String[][] earsFeature = new String[2][100];
+
+            int countEars = 0;
+            while (rs.next()) {
+                earsFeature[0][countEars] = rs.getString("featureThumb").toString();
+                earsFeature[1][countEars] = rs.getString("featurePath").toString();
+                countEars++;
+            }
+
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
+
+                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayEars.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (earsAdd) {
+
+                                imageEars = new Image(earsFeature[1][countFuncCopy]);
+                                double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
+                                imageViewEars = new ImageView(imageEars);
+                                imageViewEars.setPreserveRatio(true);
+                                imageViewEars.setFitHeight(120);
+                                imageViewEars.setFitWidth(aspectRatio * 120);
+
+                                imageViewEars.setViewOrder(0);
+
+                                canvas.getChildren().add(imageViewEars);
+                                draggable(imageViewEars);
+
+                                earsAdd = false;
+                            } else {
+
+                                imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        earsSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewEars.getFitHeight() + set;
+            double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewEars.setFitHeight(setY);
+            imageViewEars.setFitWidth(setX);
+        });
+    }
+
+
+    //Displays requested ear features on button click
+    public void searchEars() {
+
+        String search = earsSearchInput.getText();
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%ears%'";
+        displayEars.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
 //            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//        earsSize.valueProperty().addListener((observable, oldValue, newValue) ->
-//        {
-//            double set = (double) newValue - (double) oldValue;
-//            double setY = imageViewEars.getFitHeight() + set;
-//            double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
-//            double setX = aspectRatio * setY;
-//            imageViewEars.setFitHeight(setY);
-//            imageViewEars.setFitWidth(setX);
-//        });
-//    }
-//
-//
-//    //Displays requested ear features on button click
-//    public void searchEars() {
-//
-//        String search = earsSearchInput.getText();
-//        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%head%'";
-//        displayEars.getChildren().clear();
-//
-//        try {
-//            PreparedStatement pst = connection.prepareStatement(sql);
-//            ResultSet rs = pst.executeQuery();
-////            if (rs.next()) {
-////                errorlog.setText("WORKS");
-////            } else {
-////                errorlog.setText("DARD MOMENT");
-////            }
-//
-//            String[][] earsFeature = new String[2][10];
-//
-//            int countEars = 0;
-////            headThumbnail.add(rs.getString("featureThumb").toString());
-////            headFeaturePath.add(rs.getString("featurePath").toString());
-//            while (rs.next()) {
-//                earsFeature[0][countEars] = rs.getString("featureThumb").toString();
-//                earsFeature[1][countEars] = rs.getString("featurePath").toString();
-//                countEars++;
-////                headThumbnail.add(rs.getString("featureThumb").toString());
-////                headFeaturePath.add(rs.getString("featurePath").toString());
-//            }
-//
-//            int countFunc = 0;
-//            for (int i = 0; i < 5; i++) {
-//                for (int j = 0; j < 4; j++, countFunc++) {
-//
-//                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
-//                    int countFuncCopy = countFunc;
-//                    displayEars.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
-//
-//                        public void handle(MouseEvent e) {
-//                            if (earsAdd) {
-//
-//                                imageEars = new Image(earsFeature[1][countFuncCopy]);
-//                                double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
-//                                imageViewEars = new ImageView(imageEars);
-//                                imageViewEars.setPreserveRatio(true);
-//                                imageViewEars.setFitHeight(320);
-//                                imageViewEars.setFitWidth(aspectRatio * 320);
-//
-//                                imageViewEars.setViewOrder(-1);
-//
-//                                canvas.getChildren().add(imageViewEars);
-//                                draggable(imageViewEars);
-//
-//                                earsAdd = false;
-//                            } else {
-//
-//                                imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
-//
-//                            }
-//                        }
-//                    });
-//
-//                }
-//            }
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+            String[][] earsFeature = new String[2][100];
+
+            int countEars = 0;
+            while (rs.next()) {
+                earsFeature[0][countEars] = rs.getString("featureThumb").toString();
+                earsFeature[1][countEars] = rs.getString("featurePath").toString();
+                countEars++;
+            }
+
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
+
+                    displayEars.add(new ImageView(new Image(earsFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayEars.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (earsAdd) {
+
+                                imageEars = new Image(earsFeature[1][countFuncCopy]);
+                                double aspectRatio = imageEars.getWidth() / imageEars.getHeight();
+                                imageViewEars = new ImageView(imageEars);
+                                imageViewEars.setPreserveRatio(true);
+                                imageViewEars.setFitHeight(120);
+                                imageViewEars.setFitWidth(aspectRatio * 120);
+
+                                imageViewEars.setViewOrder(0);
+
+                                canvas.getChildren().add(imageViewEars);
+                                draggable(imageViewEars);
+
+                                earsAdd = false;
+                            } else {
+
+                                imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 
     //Common function to make elements draggable

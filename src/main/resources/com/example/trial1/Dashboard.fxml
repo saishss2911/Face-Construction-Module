@@ -15,26 +15,26 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="application" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-            prefHeight="708.0" prefWidth="1350.0" style="-fx-background-color: grey;" stylesheets="@dashboardStyle.css"
+            prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: grey;" stylesheets="@dashboardStyle.css"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.trial1.Sketch">
     <children>
         <StackPane fx:id="canvas" layoutX="39.0" layoutY="73.0" prefHeight="551.0" prefWidth="571.0"
                    style="-fx-background-color: #F5F5F5;" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="102.0"/>
-        <AnchorPane layoutX="706.0" layoutY="27.0" prefHeight="636.0" prefWidth="595.0">
+        <AnchorPane layoutX="637.0" layoutY="27.0" prefHeight="646.0" prefWidth="742.0">
             <children>
-                <TabPane layoutX="14.0" layoutY="14.0" prefHeight="618.0" prefWidth="571.0"
-                         stylesheets="@dashboardStyle.css" tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="1.0">
+                <TabPane layoutX="14.0" prefHeight="615.0" prefWidth="693.0" stylesheets="@dashboardStyle.css"
+                         tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="0.0">
                     <tabs>
                         <Tab text="Head">
                             <content>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="556.0">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="588.0" prefWidth="693.0">
                                     <children>
                                         <TextField fx:id="headSearchInput" layoutX="14.0" layoutY="24.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
-                                        <Button fx:id="headSearch" layoutX="470.0" layoutY="24.0"
-                                                mnemonicParsing="false" onAction="#headSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                        <Button fx:id="headSearch" layoutX="471.0" layoutY="22.0"
+                                                mnemonicParsing="false" onAction="#headSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="65.0" prefHeight="392.0" prefWidth="508.0"
                                                     AnchorPane.topAnchor="68.0">
                                             <content>
@@ -67,9 +67,9 @@
                                         <Slider fx:id="headSize" blockIncrement="1.0" layoutX="124.0" layoutY="497.0"
                                                 max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
                                                 AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
-                                        <Button fx:id="headRemove" layoutX="418.0" layoutY="492.0"
+                                        <Button fx:id="headRemove" layoutX="470.0" layoutY="492.0"
                                                 mnemonicParsing="false" onAction="#headRemove" text="Remove Element"
-                                                AnchorPane.topAnchor="492.0"/>
+                                                AnchorPane.leftAnchor="471.0" AnchorPane.topAnchor="492.0"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
                                             <font>
@@ -87,8 +87,8 @@
                                         <TextField fx:id="eyesSearchInput" layoutX="14.0" layoutY="24.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
                                         <Button fx:id="eyesSearch" layoutX="471.0" layoutY="24.0"
-                                                mnemonicParsing="false" onAction="#eyesSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                                mnemonicParsing="false" onAction="#eyesSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0"
                                                     AnchorPane.topAnchor="68.0">
                                             <content>
@@ -121,9 +121,9 @@
                                         <Slider fx:id="eyesSize" blockIncrement="1.0" layoutX="14.0" layoutY="521.0"
                                                 max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
                                                 AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
-                                        <Button fx:id="eyesRemove" layoutX="419.0" layoutY="492.0"
+                                        <Button fx:id="eyesRemove" layoutX="471.0" layoutY="492.0"
                                                 mnemonicParsing="false" onAction="#eyesRemove" text="Remove Element"
-                                                AnchorPane.topAnchor="492.0"/>
+                                                AnchorPane.leftAnchor="471.0" AnchorPane.topAnchor="492.0"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
                                             <font>
@@ -141,8 +141,8 @@
                                         <TextField fx:id="eyebrowSearchInput" layoutX="14.0" layoutY="24.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
                                         <Button fx:id="eyebrowSearch" layoutX="470.0" layoutY="24.0"
-                                                mnemonicParsing="false" onAction="#eyebrowSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                                mnemonicParsing="false" onAction="#eyebrowSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
                                             <content>
                                                 <GridPane fx:id="displayEyebrow" prefHeight="495.0" prefWidth="487.0">
@@ -174,9 +174,62 @@
                                         <Slider fx:id="eyebrowSize" blockIncrement="1.0" layoutX="14.0" layoutY="521.0"
                                                 max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
                                                 AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
-                                        <Button fx:id="eyebrowRemove" layoutX="418.0" layoutY="492.0"
-                                                mnemonicParsing="false" onAction="#eyebrowRemove"
-                                                text="Remove Element"/>
+                                        <Button fx:id="eyebrowRemove" layoutX="470.0" layoutY="492.0"
+                                                mnemonicParsing="false" onAction="#eyebrowRemove" text="Remove Element"
+                                                AnchorPane.leftAnchor="471.0"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Ears">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="earSearchInput" layoutX="14.0" layoutY="22.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="earsSearch" layoutX="471.0" layoutY="22.0"
+                                                mnemonicParsing="false" onAction="#earsSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayEars" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="earsSize" blockIncrement="1.0" layoutX="14.0" layoutY="521.0"
+                                                max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
+                                                AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
+                                        <Button fx:id="earsRemove" layoutX="471.0" layoutY="492.0"
+                                                mnemonicParsing="false" onAction="#earsRemove" text="Remove Element"
+                                                AnchorPane.leftAnchor="471.0"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
                                             <font>
@@ -194,8 +247,8 @@
                                         <TextField fx:id="hairSearchInput" layoutX="14.0" layoutY="23.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
                                         <Button fx:id="hairSearch" layoutX="471.0" layoutY="23.0"
-                                                mnemonicParsing="false" onAction="#hairSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                                mnemonicParsing="false" onAction="#hairSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
                                             <content>
                                                 <GridPane fx:id="displayHair" prefHeight="495.0" prefWidth="487.0">
@@ -227,7 +280,7 @@
                                         <Slider fx:id="hairSize" blockIncrement="1.0" layoutX="14.0" layoutY="521.0"
                                                 max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
                                                 AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
-                                        <Button fx:id="hairRemove" layoutX="419.0" layoutY="492.0"
+                                        <Button fx:id="hairRemove" layoutX="470.0" layoutY="492.0"
                                                 mnemonicParsing="false" onAction="#hairRemove" text="Remove Element"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
@@ -246,8 +299,8 @@
                                         <TextField fx:id="lipsSearchInput" layoutX="14.0" layoutY="24.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
                                         <Button fx:id="lipsSearch" layoutX="471.0" layoutY="24.0"
-                                                mnemonicParsing="false" onAction="#lipsSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                                mnemonicParsing="false" onAction="#lipsSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
                                             <content>
                                                 <GridPane fx:id="displayLips" prefHeight="495.0" prefWidth="487.0">
@@ -279,14 +332,15 @@
                                         <Slider fx:id="lipsSize" blockIncrement="1.0" layoutX="14.0" layoutY="521.0"
                                                 max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
                                                 AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
+                                        <Button fx:id="lipsRemove" layoutX="470.0" layoutY="492.0"
+                                                mnemonicParsing="false" onAction="#lipsRemove" text="Remove Element"
+                                                AnchorPane.leftAnchor="471.0"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
                                             <font>
                                                 <Font name="Bodoni Bd BT Bold" size="14.0"/>
                                             </font>
                                         </Label>
-                                        <Button fx:id="lipsRemove" layoutX="419.0" layoutY="492.0"
-                                                mnemonicParsing="false" onAction="#lipsRemove" text="Remove Element"/>
                                     </children>
                                 </AnchorPane>
                             </content>
@@ -298,8 +352,8 @@
                                         <TextField fx:id="noseSearchInput" layoutX="14.0" layoutY="22.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
                                         <Button fx:id="noseSearch" layoutX="471.0" layoutY="22.0"
-                                                mnemonicParsing="false" onAction="#noseSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                                mnemonicParsing="false" onAction="#noseSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
                                             <content>
                                                 <GridPane fx:id="displayNose" prefHeight="495.0" prefWidth="487.0">
@@ -331,8 +385,9 @@
                                         <Slider fx:id="noseSize" blockIncrement="1.0" layoutX="14.0" layoutY="521.0"
                                                 max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
                                                 AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
-                                        <Button fx:id="noseRemove" layoutX="419.0" layoutY="492.0"
-                                                mnemonicParsing="false" onAction="#noseRemove" text="Remove Element"/>
+                                        <Button fx:id="noseRemove" layoutX="471.0" layoutY="492.0"
+                                                mnemonicParsing="false" onAction="#noseRemove" text="Remove Element"
+                                                AnchorPane.leftAnchor="471.0"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
                                             <font>
@@ -349,9 +404,9 @@
                                     <children>
                                         <TextField fx:id="moustacheSearchInput" layoutX="14.0" layoutY="24.0"
                                                    prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
-                                        <Button fx:id="moustacheSearch" layoutX="471.0" layoutY="24.0"
-                                                mnemonicParsing="false" onAction="#moustacheSearch" text="Search"
-                                                AnchorPane.topAnchor="24.0"/>
+                                        <Button fx:id="moustacheSearch" layoutX="471.0" layoutY="22.0"
+                                                mnemonicParsing="false" onAction="#moustacheSearch" prefHeight="25.0"
+                                                prefWidth="60.0" text="Search" AnchorPane.topAnchor="22.0"/>
                                         <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
                                             <content>
                                                 <GridPane fx:id="displayMoustache" prefHeight="495.0" prefWidth="487.0">
@@ -381,12 +436,64 @@
                                             </content>
                                         </ScrollPane>
                                         <Slider fx:id="moustacheSize" blockIncrement="1.0" layoutX="14.0"
-                                                layoutY="523.0" max="150.0" min="-150.0" prefHeight="14.0"
-                                                prefWidth="239.0" AnchorPane.leftAnchor="124.0"
+                                                layoutY="523.0" max="150.0" min="-150.0" prefHeight="0.0"
+                                                prefWidth="237.0" AnchorPane.leftAnchor="124.0"
                                                 AnchorPane.topAnchor="497.0"/>
-                                        <Button fx:id="moustacheRemove" layoutX="421.0" layoutY="492.0"
+                                        <Button fx:id="moustacheRemove" layoutX="470.0" layoutY="492.0"
                                                 mnemonicParsing="false" onAction="#moustacheRemove"
-                                                text="Remove Element"/>
+                                                text="Remove Element" AnchorPane.leftAnchor="471.0"/>
+                                        <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
+                                               text="Element Size" textFill="WHITE">
+                                            <font>
+                                                <Font name="Bodoni Bd BT Bold" size="14.0"/>
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab text="Beard">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                    <children>
+                                        <TextField fx:id="beardSearchInput" layoutX="14.0" layoutY="24.0"
+                                                   prefHeight="25.0" prefWidth="430.0" AnchorPane.topAnchor="22.0"/>
+                                        <Button fx:id="beardSearch" layoutX="471.0" layoutY="24.0"
+                                                mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Search"
+                                                AnchorPane.topAnchor="22.0"/>
+                                        <ScrollPane layoutX="14.0" layoutY="68.0" prefHeight="392.0" prefWidth="508.0">
+                                            <content>
+                                                <GridPane fx:id="displayBeard" prefHeight="495.0" prefWidth="487.0">
+                                                    <columnConstraints>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0"
+                                                                           prefWidth="100.0"/>
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0"
+                                                                        vgrow="SOMETIMES"/>
+                                                    </rowConstraints>
+                                                </GridPane>
+                                            </content>
+                                        </ScrollPane>
+                                        <Slider fx:id="beardSize" blockIncrement="1.0" layoutX="14.0" layoutY="523.0"
+                                                max="150.0" min="-150.0" prefHeight="0.0" prefWidth="237.0"
+                                                AnchorPane.leftAnchor="124.0" AnchorPane.topAnchor="497.0"/>
+                                        <Button layoutX="470.0" layoutY="492.0" mnemonicParsing="false"
+                                                text="Remove Element" AnchorPane.leftAnchor="471.0"/>
                                         <Label layoutX="14.0" layoutY="488.0" prefHeight="32.0" prefWidth="89.0"
                                                text="Element Size" textFill="WHITE">
                                             <font>
@@ -401,10 +508,10 @@
                 </TabPane>
             </children>
         </AnchorPane>
-        <Button layoutX="39.0" layoutY="27.0" mnemonicParsing="false" text="Back"/>
-        <Button fx:id="saveSketch" layoutX="751.0" layoutY="669.0" mnemonicParsing="false" onAction="#saveSketch"
-                text="Save"/>
-        <Button fx:id="resetCanvas" layoutX="836.0" layoutY="669.0" mnemonicParsing="false" onAction="#resetCanvas"
-                text="Reset"/>
+        <Button fx:id="backbutton" layoutX="39.0" layoutY="27.0" mnemonicParsing="false" text="Back"/>
+        <Button fx:id="saveSketch" layoutX="751.0" layoutY="669.0" mnemonicParsing="false" text="Save"
+                AnchorPane.topAnchor="669.0"/>
+        <Button fx:id="resetSketch" layoutX="836.0" layoutY="669.0" mnemonicParsing="false" text="Reset"
+                AnchorPane.leftAnchor="900.0" AnchorPane.topAnchor="669.0"/>
     </children>
 </AnchorPane>
