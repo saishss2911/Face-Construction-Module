@@ -44,6 +44,7 @@ public class Sketch implements Initializable {
     private boolean eyebrowAdd = true;
     private boolean moustacheAdd = true;
     private boolean earsAdd = true;
+    private boolean beardAdd = true;
 
 
     private double startX;
@@ -57,8 +58,8 @@ public class Sketch implements Initializable {
     private Image imageLips;
     private Image imageEyebrow;
     private Image imageMoustache;
-
     private Image imageEars;
+    private Image imageBeard;
 
 
     private ImageView imageViewHead;
@@ -68,8 +69,8 @@ public class Sketch implements Initializable {
     private ImageView imageViewLips;
     private ImageView imageViewEyebrow;
     private ImageView imageViewMoustache;
-
     private ImageView imageViewEars;
+    private ImageView imageViewBeard;
 
 
     @FXML
@@ -88,6 +89,8 @@ public class Sketch implements Initializable {
     private Slider moustacheSize;
     @FXML
     private Slider earsSize;
+    @FXML
+    private Slider beardSize;
 
 
     @FXML
@@ -106,6 +109,8 @@ public class Sketch implements Initializable {
     private GridPane displayMoustache;
     @FXML
     private GridPane displayEars;
+    @FXML
+    private GridPane displayBeard;
 
 
     @FXML
@@ -257,6 +262,26 @@ public class Sketch implements Initializable {
     }
 
 
+    @FXML
+    private Button beardSearch;
+    @FXML
+    private TextField beardSearchInput;
+
+    @FXML
+    void beardSearch(ActionEvent event) {
+        searchBeard();
+    }
+
+    @FXML
+    private Button beardRemove;
+
+    @FXML
+    void beardRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewBeard);
+        beardAdd = true;
+    }
+
+
 //    @FXML
 //    private Label statusDb;
 //
@@ -268,10 +293,10 @@ public class Sketch implements Initializable {
 
 
     @FXML
-    private Button resetCanvas;
+    private Button resetSketch;
 
     @FXML
-    void resetCanvas(ActionEvent event) {
+    void resetSketch(ActionEvent event) {
         canvas.getChildren().clear();
         headAdd = true;
         hairAdd = true;
@@ -281,7 +306,7 @@ public class Sketch implements Initializable {
         eyebrowAdd = true;
         moustacheAdd = true;
         earsAdd = true;
-
+        beardAdd = true;
     }
 
 
@@ -339,6 +364,7 @@ public class Sketch implements Initializable {
             eyebrowDisplay();
             moustacheDisplay();
             earsDisplay();
+            beardDisplay();
         } else {
 //            statusDb.setText("Dard");
         }
@@ -1385,6 +1411,146 @@ public class Sketch implements Initializable {
                             } else {
 
                                 imageViewEars.setImage(new Image(earsFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //Displays beard features on app load
+    public void beardDisplay() {
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%beard%'";
+        displayBeard.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
+//            }
+
+            String[][] beardFeature = new String[2][100];
+
+            int countBeard = 0;
+            while (rs.next()) {
+                beardFeature[0][countBeard] = rs.getString("featureThumb").toString();
+                beardFeature[1][countBeard] = rs.getString("featurePath").toString();
+                countBeard++;
+            }
+
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
+
+                    displayBeard.add(new ImageView(new Image(beardFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayBeard.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (beardAdd) {
+
+                                imageBeard = new Image(beardFeature[1][countFuncCopy]);
+                                double aspectRatio = imageBeard.getWidth() / imageBeard.getHeight();
+                                imageViewBeard = new ImageView(imageBeard);
+                                imageViewBeard.setPreserveRatio(true);
+                                imageViewBeard.setFitHeight(320);
+                                imageViewBeard.setFitWidth(aspectRatio * 320);
+
+                                imageViewBeard.setViewOrder(-7);
+
+                                canvas.getChildren().add(imageViewBeard);
+                                draggable(imageViewBeard);
+
+                                beardAdd = false;
+                            } else {
+
+                                imageViewBeard.setImage(new Image(beardFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        beardSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewBeard.getFitHeight() + set;
+            double aspectRatio = imageBeard.getWidth() / imageBeard.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewBeard.setFitHeight(setY);
+            imageViewBeard.setFitWidth(setX);
+        });
+    }
+
+
+    //Displays requested beard features on button click
+    public void searchBeard() {
+
+        String search = beardSearchInput.getText();
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%beard%'";
+        displayBeard.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
+//            }
+
+            String[][] beardFeature = new String[2][100];
+
+            int countBeard = 0;
+            while (rs.next()) {
+                beardFeature[0][countBeard] = rs.getString("featureThumb").toString();
+                beardFeature[1][countBeard] = rs.getString("featurePath").toString();
+                countBeard++;
+            }
+
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
+
+                    displayBeard.add(new ImageView(new Image(beardFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayBeard.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (beardAdd) {
+
+                                imageBeard = new Image(beardFeature[1][countFuncCopy]);
+                                double aspectRatio = imageBeard.getWidth() / imageBeard.getHeight();
+                                imageViewBeard = new ImageView(imageBeard);
+                                imageViewBeard.setPreserveRatio(true);
+                                imageViewBeard.setFitHeight(320);
+                                imageViewBeard.setFitWidth(aspectRatio * 320);
+
+                                imageViewBeard.setViewOrder(-7);
+
+                                canvas.getChildren().add(imageViewBeard);
+                                draggable(imageViewBeard);
+
+                                beardAdd = false;
+                            } else {
+
+                                imageViewBeard.setImage(new Image(beardFeature[1][countFuncCopy]));
 
                             }
                         }
