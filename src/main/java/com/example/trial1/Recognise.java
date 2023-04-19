@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.InputStreamReader;
+import java.io.Reader;
 
 public class Recognise {
 
@@ -58,13 +59,25 @@ public class Recognise {
     @FXML
     void searchSketch(ActionEvent event) {
         try {
-            ProcessBuilder builder = new ProcessBuilder("python", "file:Scripts\\recog.py", sketchPath);
+
+//
+            ProcessBuilder builder = new ProcessBuilder(System.getProperty("user.home") + "\\Users\\91883\\AppData\\Local\\Programs\\Python\\Python39\\pythonw", System.getProperty("user.dir") + "\\Scripts\\recog.py", sketchPath.substring(6).replaceAll("/", "\\\\"));
             Process process = builder.start();
 
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+//            Process process = Runtime.getRuntime().exec("python " +  System.getProperty("user.dir") + "\\Scripts\\recog.py" + " " + sketchPath.substring(6).replaceAll("/","\\\\"));
 
-            photoPath = reader.readLine();
-            similarity = reader.readLine();
+            Reader reader = new InputStreamReader(process.getInputStream());
+            BufferedReader buffReader = new BufferedReader(reader);
+            BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+
+            System.out.println(error.readLine());
+            System.out.println(error.readLine());
+            System.out.println(error.readLine());
+            System.out.println(error.readLine());
+            System.out.println(error.readLine());
+
+            photoPath = buffReader.readLine();
+            similarity = buffReader.readLine();
 
             Image image = new Image(photoPath);
             photoImage.setImage(image);

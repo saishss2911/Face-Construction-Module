@@ -1,0 +1,1 @@
+sketch_path = "Sketch 2.jpg"
