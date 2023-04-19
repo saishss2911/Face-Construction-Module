@@ -3,13 +3,16 @@ package com.example.trial1;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.InputStreamReader;
 
 public class Recognise {
 
@@ -23,6 +26,15 @@ public class Recognise {
     private Button searchSketch;
     @FXML
     private ImageView sketchImage;
+    @FXML
+    private ImageView photoImage;
+
+    @FXML
+    private Label similarityLabel;
+
+    private String sketchPath;
+    private String photoPath;
+    private String similarity;
 
     @FXML
     void addSketch(ActionEvent event) {
@@ -38,13 +50,31 @@ public class Recognise {
 
         if (file != null) {
             Image image = new Image(file.toURI().toString());
+            sketchPath = file.toURI().toString();
             sketchImage.setImage(image);
         }
     }
 
     @FXML
     void searchSketch(ActionEvent event) {
+        try {
+            ProcessBuilder builder = new ProcessBuilder("python", "file:Scripts\\recog.py", sketchPath);
+            Process process = builder.start();
 
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+            photoPath = reader.readLine();
+            similarity = reader.readLine();
+
+            Image image = new Image(photoPath);
+            photoImage.setImage(image);
+
+            similarityLabel.setText(similarity + "% match");
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
