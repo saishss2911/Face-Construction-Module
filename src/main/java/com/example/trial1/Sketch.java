@@ -326,7 +326,7 @@ public class Sketch implements Initializable {
         //Set extension filter
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.png");
         fileChooser.getExtensionFilters().add(extFilter);
-        File sketches = new File(System.getProperty("user.home"), ".sketches/Saved Sketches");
+        File sketches = new File(System.getProperty("user.home"), ".sketches/Saved");
         if (!sketches.exists()) {
             sketches.mkdirs();
         }

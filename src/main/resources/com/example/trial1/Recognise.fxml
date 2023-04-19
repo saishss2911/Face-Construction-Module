@@ -9,39 +9,39 @@
 <AnchorPane fx:id="application" prefHeight="879.0" prefWidth="1200.0" style="-fx-background-color: grey;"
             xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.example.trial1.Recognise">
-   <children>
-      <HBox layoutX="-2.0" prefHeight="879.0" prefWidth="1200.0">
-         <children>
-            <AnchorPane prefHeight="879.0" prefWidth="500.0">
-               <children>
-                  <AnchorPane layoutX="23.0" layoutY="200.0" prefHeight="480.0" prefWidth="400.0"
-                              style="-fx-background-color: white;"/>
-                  <ImageView fx:id="sketchImage" fitHeight="400.0" fitWidth="400.0" layoutX="23.0" layoutY="240.0"
-                             pickOnBounds="true" preserveRatio="true"/>
-                  <Button fx:id="addSketch" layoutX="173.0" layoutY="731.0" mnemonicParsing="false"
-                          onAction="#addSketch" prefHeight="50.0" prefWidth="100.0" text="Add Sketch"/>
-               </children>
-            </AnchorPane>
+    <children>
+        <HBox layoutX="-2.0" prefHeight="879.0" prefWidth="1200.0">
+            <children>
+                <AnchorPane prefHeight="879.0" prefWidth="500.0">
+                    <children>
+                        <AnchorPane layoutX="23.0" layoutY="200.0" prefHeight="480.0" prefWidth="400.0"
+                                    style="-fx-background-color: white;"/>
+                        <ImageView fx:id="sketchImage" fitHeight="400.0" fitWidth="400.0" layoutX="23.0" layoutY="240.0"
+                                   pickOnBounds="true" preserveRatio="true"/>
+                        <Button fx:id="addSketch" layoutX="173.0" layoutY="731.0" mnemonicParsing="false"
+                                onAction="#addSketch" prefHeight="50.0" prefWidth="100.0" text="Add Sketch"/>
+                    </children>
+                </AnchorPane>
             <AnchorPane prefHeight="879.0" prefWidth="364.0">
-               <children>
-                  <Label fx:id="similarity" layoutX="25.0" layoutY="263.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Label layoutX="25.0" layoutY="289.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Label layoutX="25.0" layoutY="318.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Label layoutX="25.0" layoutY="349.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Label layoutX="25.0" layoutY="379.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Label layoutX="25.0" layoutY="411.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Label layoutX="25.0" layoutY="440.0" prefHeight="17.0" prefWidth="260.0"/>
-                  <Button fx:id="searchSketch" layoutX="105.0" layoutY="775.0" mnemonicParsing="false"
-                          onAction="#searchSketch" prefHeight="50.0" prefWidth="100.0" text="Search"/>
-               </children>
+                <children>
+                    <Label fx:id="similarityLabel" layoutX="25.0" layoutY="263.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Label layoutX="25.0" layoutY="289.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Label layoutX="25.0" layoutY="318.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Label layoutX="25.0" layoutY="349.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Label layoutX="25.0" layoutY="379.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Label layoutX="25.0" layoutY="411.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Label layoutX="25.0" layoutY="440.0" prefHeight="17.0" prefWidth="260.0"/>
+                    <Button fx:id="searchSketch" layoutX="105.0" layoutY="775.0" mnemonicParsing="false"
+                            onAction="#searchSketch" prefHeight="50.0" prefWidth="100.0" text="Search"/>
+                </children>
             </AnchorPane>
             <AnchorPane prefHeight="879.0" prefWidth="500.0">
-               <children>
-                  <AnchorPane layoutX="23.0" layoutY="200.0" prefHeight="480.0" prefWidth="400.0"
-                              style="-fx-background-color: white;"/>
-                  <ImageView fx:id="photoImage" fitHeight="400.0" fitWidth="400.0" layoutX="23.0" layoutY="240.0"
-                             pickOnBounds="true" preserveRatio="true"/>
-               </children>
+                <children>
+                    <AnchorPane layoutX="23.0" layoutY="200.0" prefHeight="480.0" prefWidth="400.0"
+                                style="-fx-background-color: white;"/>
+                    <ImageView fx:id="photoImage" fitHeight="400.0" fitWidth="400.0" layoutX="23.0" layoutY="240.0"
+                               pickOnBounds="true" preserveRatio="true"/>
+                </children>
             </AnchorPane>
          </children>
       </HBox>

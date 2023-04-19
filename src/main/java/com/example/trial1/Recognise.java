@@ -40,7 +40,7 @@ public class Recognise {
     @FXML
     void addSketch(ActionEvent event) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setInitialDirectory(new File(System.getProperty("user.home"), ".sketches/Saved Sketches"));
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home"), ".sketches/Saved"));
 
         Stage stage = (Stage) application.getScene().getWindow();
 
@@ -60,8 +60,8 @@ public class Recognise {
     void searchSketch(ActionEvent event) {
         try {
 
-//
-            ProcessBuilder builder = new ProcessBuilder(System.getProperty("user.home") + "\\Users\\91883\\AppData\\Local\\Programs\\Python\\Python39\\pythonw", System.getProperty("user.dir") + "\\Scripts\\recog.py", sketchPath.substring(6).replaceAll("/", "\\\\"));
+//.replaceAll("/", "\\\\")
+            ProcessBuilder builder = new ProcessBuilder("python", System.getProperty("user.dir") + "\\Scripts\\recog.py", sketchPath.substring(6));
             Process process = builder.start();
 
 //            Process process = Runtime.getRuntime().exec("python " +  System.getProperty("user.dir") + "\\Scripts\\recog.py" + " " + sketchPath.substring(6).replaceAll("/","\\\\"));
@@ -69,12 +69,6 @@ public class Recognise {
             Reader reader = new InputStreamReader(process.getInputStream());
             BufferedReader buffReader = new BufferedReader(reader);
             BufferedReader error = new BufferedReader(new InputStreamReader(process.getErrorStream()));
-
-            System.out.println(error.readLine());
-            System.out.println(error.readLine());
-            System.out.println(error.readLine());
-            System.out.println(error.readLine());
-            System.out.println(error.readLine());
 
             photoPath = buffReader.readLine();
             similarity = buffReader.readLine();
