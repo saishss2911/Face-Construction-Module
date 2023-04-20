@@ -45,6 +45,7 @@ public class Sketch implements Initializable {
     private boolean moustacheAdd = true;
     private boolean earsAdd = true;
     private boolean beardAdd = true;
+    private boolean neckAdd = true;
 
 
     private double startX;
@@ -60,6 +61,7 @@ public class Sketch implements Initializable {
     private Image imageMoustache;
     private Image imageEars;
     private Image imageBeard;
+    private Image imageNeck;
 
 
     private ImageView imageViewHead;
@@ -71,6 +73,7 @@ public class Sketch implements Initializable {
     private ImageView imageViewMoustache;
     private ImageView imageViewEars;
     private ImageView imageViewBeard;
+    private ImageView imageViewNeck;
 
 
     @FXML
@@ -91,6 +94,8 @@ public class Sketch implements Initializable {
     private Slider earsSize;
     @FXML
     private Slider beardSize;
+    @FXML
+    private Slider neckSize;
 
 
     @FXML
@@ -111,6 +116,8 @@ public class Sketch implements Initializable {
     private GridPane displayEars;
     @FXML
     private GridPane displayBeard;
+    @FXML
+    private GridPane displayNeck;
 
 
     @FXML
@@ -282,6 +289,26 @@ public class Sketch implements Initializable {
     }
 
 
+    @FXML
+    private Button neckSearch;
+    @FXML
+    private TextField neckSearchInput;
+
+    @FXML
+    void neckSearch(ActionEvent event) {
+        searchNeck();
+    }
+
+    @FXML
+    private Button neckRemove;
+
+    @FXML
+    void neckRemove(ActionEvent event) {
+        canvas.getChildren().remove(imageViewNeck);
+        neckAdd = true;
+    }
+
+
 //    @FXML
 //    private Label statusDb;
 //
@@ -307,6 +334,7 @@ public class Sketch implements Initializable {
         moustacheAdd = true;
         earsAdd = true;
         beardAdd = true;
+        neckAdd = true;
     }
 
 
@@ -365,6 +393,7 @@ public class Sketch implements Initializable {
             moustacheDisplay();
             earsDisplay();
             beardDisplay();
+            neckDisplay();
         } else {
 //            statusDb.setText("Dard");
         }
@@ -532,7 +561,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 15; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayHair.add(new ImageView(new Image(hairFeature[0][countFunc])), j, i);
@@ -602,7 +631,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 15; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayHair.add(new ImageView(new Image(hairFeature[0][countFunc])), j, i);
@@ -661,7 +690,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 22; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyes.add(new ImageView(new Image(eyesFeature[0][countFunc])), j, i);
@@ -731,7 +760,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 22; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyes.add(new ImageView(new Image(eyesFeature[0][countFunc])), j, i);
@@ -790,7 +819,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayNose.add(new ImageView(new Image(noseFeature[0][countFunc])), j, i);
@@ -860,7 +889,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 9; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayNose.add(new ImageView(new Image(noseFeature[0][countFunc])), j, i);
@@ -919,7 +948,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 17; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayLips.add(new ImageView(new Image(lipsFeature[0][countFunc])), j, i);
@@ -989,7 +1018,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 17; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayLips.add(new ImageView(new Image(lipsFeature[0][countFunc])), j, i);
@@ -1048,7 +1077,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 15; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyebrow.add(new ImageView(new Image(eyebrowFeature[0][countFunc])), j, i);
@@ -1118,7 +1147,7 @@ public class Sketch implements Initializable {
             }
 
             int countFunc = 0;
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 15; i++) {
                 for (int j = 0; j < 4; j++, countFunc++) {
 
                     displayEyebrow.add(new ImageView(new Image(eyebrowFeature[0][countFunc])), j, i);
@@ -1551,6 +1580,145 @@ public class Sketch implements Initializable {
                             } else {
 
                                 imageViewBeard.setImage(new Image(beardFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    //Displays neck features on app load
+    public void neckDisplay() {
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE featureType LIKE '%neck%'";
+        displayNeck.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
+//            }
+
+            String[][] neckFeature = new String[2][100];
+
+            int countNeck = 0;
+            while (rs.next()) {
+                neckFeature[0][countNeck] = rs.getString("featureThumb").toString();
+                neckFeature[1][countNeck] = rs.getString("featurePath").toString();
+                countNeck++;
+            }
+
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
+
+                    displayNeck.add(new ImageView(new Image(neckFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayNeck.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (neckAdd) {
+
+                                imageNeck = new Image(neckFeature[1][countFuncCopy]);
+                                double aspectRatio = imageNeck.getWidth() / imageNeck.getHeight();
+                                imageViewNeck = new ImageView(imageNeck);
+                                imageViewNeck.setPreserveRatio(true);
+                                imageViewNeck.setFitHeight(320);
+                                imageViewNeck.setFitWidth(aspectRatio * 320);
+
+                                imageViewNeck.setViewOrder(-7);
+
+                                canvas.getChildren().add(imageViewNeck);
+                                draggable(imageViewNeck);
+
+                                neckAdd = false;
+                            } else {
+
+                                imageViewNeck.setImage(new Image(neckFeature[1][countFuncCopy]));
+
+                            }
+                        }
+                    });
+
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        neckSize.valueProperty().addListener((observable, oldValue, newValue) ->
+        {
+            double set = (double) newValue - (double) oldValue;
+            double setY = imageViewNeck.getFitHeight() + set;
+            double aspectRatio = imageNeck.getWidth() / imageNeck.getHeight();
+            double setX = aspectRatio * setY;
+            imageViewNeck.setFitHeight(setY);
+            imageViewNeck.setFitWidth(setX);
+        });
+    }
+
+    //Displays requested beard features on button click
+    public void searchNeck() {
+
+        String search = neckSearchInput.getText();
+        String sql = "SELECT featureThumb,featurePath FROM featureset WHERE tags LIKE '%" + search + "%' AND featureType LIKE '%neck%'";
+        displayNeck.getChildren().clear();
+
+        try {
+            PreparedStatement pst = connection.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+//            if (rs.next()) {
+//                errorlog.setText("WORKS");
+//            } else {
+//                errorlog.setText("DARD MOMENT");
+//            }
+
+            String[][] beardFeature = new String[2][100];
+
+            int countNeck = 0;
+            while (rs.next()) {
+                beardFeature[0][countNeck] = rs.getString("featureThumb").toString();
+                beardFeature[1][countNeck] = rs.getString("featurePath").toString();
+                countNeck++;
+            }
+
+            int countFunc = 0;
+            for (int i = 0; i < 5; i++) {
+                for (int j = 0; j < 4; j++, countFunc++) {
+
+                    displayNeck.add(new ImageView(new Image(beardFeature[0][countFunc])), j, i);
+                    int countFuncCopy = countFunc;
+                    displayNeck.getChildren().get(countFuncCopy).addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+
+                        public void handle(MouseEvent e) {
+                            if (neckAdd) {
+
+                                imageNeck = new Image(beardFeature[1][countFuncCopy]);
+                                double aspectRatio = imageNeck.getWidth() / imageNeck.getHeight();
+                                imageViewNeck = new ImageView(imageNeck);
+                                imageViewNeck.setPreserveRatio(true);
+                                imageViewNeck.setFitHeight(320);
+                                imageViewNeck.setFitWidth(aspectRatio * 320);
+
+                                imageViewNeck.setViewOrder(-7);
+
+                                canvas.getChildren().add(imageViewNeck);
+                                draggable(imageViewNeck);
+
+                                neckAdd = false;
+                            } else {
+
+                                imageViewNeck.setImage(new Image(beardFeature[1][countFuncCopy]));
 
                             }
                         }
