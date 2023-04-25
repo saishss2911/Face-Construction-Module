@@ -61,7 +61,7 @@ public class Recognise {
         try {
 
 //.replaceAll("/", "\\\\")
-            ProcessBuilder builder = new ProcessBuilder("python", System.getProperty("user.dir") + "\\Scripts\\recog.py", sketchPath.substring(6));
+            ProcessBuilder builder = new ProcessBuilder(System.getProperty("user.dir") + "\\Python\\Python39\\pythonw.exe", System.getProperty("user.dir") + "\\Scripts\\recog.py", sketchPath.substring(6));
             Process process = builder.start();
 
 //            Process process = Runtime.getRuntime().exec("python " +  System.getProperty("user.dir") + "\\Scripts\\recog.py" + " " + sketchPath.substring(6).replaceAll("/","\\\\"));

@@ -3,7 +3,6 @@ import dlib
 import numpy as np
 import os
 import sys
-from PIL import Image
 
 orb = cv2.ORB_create()
 
